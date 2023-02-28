@@ -1,0 +1,33 @@
+node('master') 
+{
+  stage('GitCheckout') 
+  {
+    git 'https://github.com/selenium-saikrishna/maven.git'
+  } 
+  stage('Build') 
+  {
+    sh 'mvn package'
+  } 
+  stage('QaDeploy') 
+  {
+    sh 'scp /var/lib/jenkins/workspace/Pipeline/webapp/target/webapp.war Ubuntu@10.10.10.32:/var/lib/tomcat7/webapps/qaenv.war'
+  }
+  stage('Test') 
+  {
+    git 'https://github.com/selenium-saikrishna/TestingOnLinux.git'
+    sh 'java -jar  /var/lib/jenkins/workspace/Pipeline/testing.jar'
+  }
+  stage('ProdDeploy') 
+  {
+      #input message: 'Waiting for approval from DM', submitter: 'TestSubmitter'
+    sh 'scp /var/lib/jenkins/workspace/Pipeline/webapp/target/webapp.war Ubuntu@10.10.10.33:/var/lib/tomcat7/webapps/prodenv.war'
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+}
