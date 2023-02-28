@@ -6,7 +6,7 @@ pipeline
     stages {
         stage('Get Source Code') {
             steps {
-                git credentialsId: '291a3c49-fa9f-409c-ad87-cae9c219fcf6', url: 'https://github.com/mgmkamran/testjavaapplication.git'
+                git credentialsId: '291a3c49-fa9f-409c-ad87-cae9c219fcf6', url: 'https://github.com/Ankita610199/ALDI_challenge.git'
                 echo 'Hello World'
             }
         }
