@@ -1,9 +1,10 @@
 
 
-                 Welcome to Aldi Challenge
+                                    Welcome to ALDI Challenge
 
 
+                                     Hello, This is  Ankita!
 
-
-Hello, This is Aldi code Challenge Test by Ankita!
-
+      This project is created to demonstrate integration of various tools with Jenkins and deploy a CICD Pipeline.
+      
+      Thanks
